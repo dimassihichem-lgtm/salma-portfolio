@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Salma Megdiche — Architecte d'intérieur</title>
+<meta name="description" content="Salma Megdiche, architecte d'intérieur à Paris. Résidentiel, showrooms et vitrines, home staging, scénographie d'événements.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --plaster:#F4F2EC; --plaster-2:#E9E6DE; --lin:#EFE7D8;
+  --glaze:#25302B; --stone:#8A8781;
+  --sauge:#6E8F80; --ocre:#D5B26F; --argile:#C6968A; --amethyste:#8C81A0; --laiton:#B39A62;
+  --grout:7px; --gutter:clamp(20px,5vw,72px); --measure:60ch;
+  --font:"Jost","Futura","Avenir Next","Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} *{transition:none!important}}
+body{margin:0;background:var(--plaster);color:var(--glaze);font-family:var(--font);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;position:relative}
+/* grain d'enduit très léger sur toute la page */
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.045;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+main,header,footer{position:relative;z-index:1}
+a{color:inherit;text-decoration:none} a:hover{color:var(--sauge)}
+:focus-visible{outline:2px solid var(--sauge);outline-offset:3px}
+img{max-width:100%;display:block}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+h1,h2,h3{font-weight:300;margin:0;letter-spacing:-.01em} p{margin:0}
+
+/* en-tête */
+.site-head{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--plaster) 90%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--plaster-2)}
+.site-head .row{display:flex;align-items:center;justify-content:space-between;padding:18px var(--gutter);gap:24px}
+.brand{font-weight:500;white-space:nowrap} .brand small{display:block;font-weight:300;color:var(--stone);font-size:.85em;margin-top:2px}
+nav ul{list-style:none;margin:0;padding:0;display:flex;gap:28px;align-items:center} nav a{font-size:.95em}
+.lang{display:inline-flex;border:1px solid var(--plaster-2);border-radius:999px;overflow:hidden}
+.lang button{padding:5px 12px;font-size:.85em;color:var(--stone)} .lang button[aria-pressed="true"]{background:var(--glaze);color:var(--plaster)}
+.lang[hidden]{display:none}
+@media(max-width:760px){nav ul{gap:16px} nav a{font-size:.9em} .brand small{display:none}}
+@media(max-width:600px){nav li:not(.lang){display:none}}
+
+/* ---------- héros : la planche d'inspiration ---------- */
+.board{padding:28px var(--gutter) 0;display:grid;grid-template-columns:7fr 5fr;gap:var(--grout);align-items:stretch}
+.board .main{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:999px 999px 0 0;background:#D9D5CB}
+.board .main img,.board .small img{width:100%;height:100%;object-fit:cover;display:block}
+.board .side{display:grid;grid-template-rows:auto 1fr auto;gap:var(--grout)}
+.board .top{display:grid;grid-template-columns:1fr 1fr 1.6fr;gap:var(--grout)}
+.board .sw{aspect-ratio:1;background-size:cover;background-position:center;position:relative;border-radius:2px}
+.board .small{aspect-ratio:1.6;position:relative;overflow:hidden;background:#CFD6CF}
+.board .text{padding:26px 8px 18px 0;display:flex;flex-direction:column;justify-content:center}
+.board h1{font-size:clamp(28px,3.2vw,40px);line-height:1.12}
+.board .text p{margin-top:14px;color:var(--stone);font-weight:300;font-size:clamp(16px,1.25vw,19px);max-width:34ch}
+.board .bottom{display:flex;gap:18px;align-items:flex-end;padding-bottom:6px}
+.board .dot{width:58px;height:58px;border-radius:50%;background-size:cover;background-position:center;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06)}
+.board .lbl{font-size:.78em;color:var(--stone);font-weight:300;margin-top:6px;line-height:1.2}
+.illu{position:absolute;left:10px;bottom:10px;font-size:.7em;font-weight:300;letter-spacing:.02em;color:#fff;background:rgba(37,48,43,.55);padding:3px 8px;border-radius:2px}
+.ph{position:absolute;inset:0;display:grid;place-items:end start;padding:12px;color:var(--stone);font-size:.78em;font-weight:300}
+@media(max-width:900px){
+  .board{grid-template-columns:1fr}
+  .board .main{aspect-ratio:4/5;border-radius:999px 999px 0 0}
+  .board .side{grid-template-rows:auto auto auto}
+}
+
+/* sections */
+section{padding:76px var(--gutter) 0}
+.section-title{font-size:clamp(22px,2.4vw,30px);margin-bottom:26px}
+
+/* domaines : quatre colonnes, chacune portée par sa couleur */
+.domains{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--grout);background:var(--plaster-2);margin-top:8px}
+.domains > div{background:var(--plaster);padding:18px 22px 26px 0;border-top:3px solid var(--c)}
+.domains h3{font-size:1.05em;font-weight:500;margin-bottom:8px}
+.domains p{color:var(--stone);font-weight:300;font-size:.95em;max-width:34ch}
+@media(max-width:900px){.domains{grid-template-columns:repeat(2,1fr)} .domains>div{padding-right:18px}}
+@media(max-width:520px){.domains{grid-template-columns:1fr}}
+
+/* projets : mosaïque de carreaux */
+.filters{display:flex;flex-wrap:wrap;gap:6px 22px;margin-bottom:26px}
+.filters button{padding:4px 0;color:var(--stone);border-bottom:1px solid transparent;font-size:.95em;display:inline-flex;align-items:center;gap:8px}
+.filters button[aria-pressed="true"]{color:var(--glaze);border-bottom-color:var(--glaze)}
+.chip{width:10px;height:10px;border-radius:2px;background:var(--c);flex:none}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:calc((100vw - 2*var(--gutter) - 5*var(--grout))/6 * .78);grid-auto-flow:dense;gap:var(--grout);background:var(--plaster-2)}
+.tile{background:var(--plaster);text-align:left;display:flex;flex-direction:column;grid-column:span 2;grid-row:span 2}
+.tile.wide{grid-column:span 4;grid-row:span 2}
+.tile.tall{grid-column:span 2;grid-row:span 3}
+.tile .img{flex:1;position:relative;overflow:hidden;background:var(--t)}
+.tile .img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.board .main,.board .small,.tile .img,.panel .gal > div{position:relative}
+.tile:hover .img img{transform:scale(1.02)}
+.tile .cap{padding:12px 12px 20px 0;display:flex;gap:10px;align-items:flex-start}
+.tile .cap .chip{margin-top:8px}
+.tile .cap b{font-weight:500;display:block} .tile .cap span{color:var(--stone);font-weight:300;font-size:.92em}
+.tile .cap em{font-style:normal;color:var(--sauge);font-size:.8em;margin-left:8px}
+.empty{padding:40px 0;color:var(--stone);font-weight:300}
+@media(max-width:900px){.grid{grid-template-columns:repeat(4,1fr);grid-auto-rows:calc((100vw - 2*var(--gutter) - 3*var(--grout))/4 * .8)} .tile.wide{grid-column:span 4}}
+@media(max-width:560px){.grid{grid-template-columns:1fr;grid-auto-rows:auto} .tile,.tile.wide,.tile.tall{grid-column:span 1;grid-row:span 1} .tile .img{aspect-ratio:4/3}}
+
+/* panneau projet */
+.backdrop{position:fixed;inset:0;background:rgba(37,48,43,.32);z-index:30;opacity:0;pointer-events:none;transition:opacity .25s}
+.backdrop.on{opacity:1;pointer-events:auto}
+.panel{position:fixed;top:0;right:0;height:100dvh;width:min(760px,100vw);background:var(--plaster);z-index:31;transform:translateX(100%);transition:transform .3s ease;overflow:auto}
+.panel.on{transform:none}
+.panel-in{padding:24px var(--gutter) 60px}
+.panel .close{position:sticky;top:0;float:right;background:var(--plaster);padding:6px 0 6px 12px;color:var(--stone)}
+.panel h2{font-size:clamp(24px,2.6vw,32px);margin:36px 0 6px;clear:both}
+.panel .meta{color:var(--stone);font-weight:300;margin-bottom:24px;display:flex;gap:10px;align-items:center}
+.panel .gal{display:grid;grid-template-columns:1fr 1fr;gap:var(--grout);background:var(--plaster-2);margin-bottom:28px}
+.panel .gal > div{aspect-ratio:4/3;background:var(--t);position:relative;overflow:hidden}
+.panel .gal > div:first-child{grid-column:span 2;aspect-ratio:16/10}
+.panel .gal img{width:100%;height:100%;object-fit:cover}
+.panel .desc{max-width:var(--measure);font-weight:300;font-size:1.05em}
+.facts{list-style:none;padding:0;margin:28px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;max-width:var(--measure)}
+.facts li{border-top:1px solid var(--plaster-2);padding-top:8px} .facts li span{display:block;color:var(--stone);font-size:.85em;font-weight:300}
+
+/* approche : bande lin, séquence numérotée */
+.approche{margin-top:76px;padding:64px var(--gutter);background:var(--lin)}
+.approche .section-title{margin-bottom:22px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.steps .n{font-weight:300;color:var(--laiton);font-size:1.7em;line-height:1;margin-bottom:12px}
+.steps h3{font-size:1.05em;font-weight:500;margin-bottom:8px}
+.steps p{color:var(--stone);font-weight:300;font-size:.95em;max-width:34ch}
+@media(max-width:760px){.steps{grid-template-columns:1fr;gap:26px}}
+
+/* à propos */
+.about{display:grid;grid-template-columns:minmax(220px,1fr) 2fr;gap:48px;align-items:start}
+.portrait{aspect-ratio:4/5;background:#CBD3CC;position:relative;overflow:hidden}
+.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.about .text{max-width:var(--measure);font-weight:300;font-size:1.05em} .about .text p + p{margin-top:16px}
+.about dl{margin:28px 0 0;display:grid;grid-template-columns:auto 1fr;gap:8px 20px;font-size:.95em}
+.about dt{color:var(--stone);font-weight:300} .about dd{margin:0}
+@media(max-width:760px){.about{grid-template-columns:1fr} .portrait{max-width:300px}}
+
+/* contact + pied de page sur fond émail */
+.contact{margin-top:80px;padding:64px var(--gutter) 40px;background:var(--glaze);color:var(--plaster)}
+.contact .box{display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:960px}
+.contact .big{font-size:clamp(22px,2.2vw,30px);font-weight:300;line-height:1.3}
+.contact ul{list-style:none;margin:0;padding:0;font-weight:300} .contact li{margin-bottom:8px}
+.contact li a{border-bottom:1px solid rgba(244,242,236,.35)} .contact a:hover{color:var(--ocre)}
+.contact .cv{display:inline-block;margin-top:16px;padding:10px 18px;border:1px solid var(--plaster);border-radius:999px;font-size:.95em}
+.contact .cv:hover{background:var(--plaster);color:var(--glaze)}
+.contact footer{margin-top:56px;padding-top:18px;border-top:1px solid rgba(244,242,236,.18);color:rgba(244,242,236,.6);font-size:.85em;font-weight:300;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media(max-width:760px){.contact .box{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="row">
+    <a class="brand" href="#top">Salma Megdiche<small data-i18n="brand_sub"></small></a>
+    <nav aria-label="Navigation">
+      <ul>
+        <li><a href="#projets" data-i18n="nav_work"></a></li>
+        <li><a href="#approche" data-i18n="nav_approach"></a></li>
+        <li><a href="#apropos" data-i18n="nav_about"></a></li>
+        <li><a href="#contact" data-i18n="nav_contact"></a></li>
+        <li class="lang" id="langToggle" role="group" aria-label="Langue" hidden>
+          <button data-lang="fr" aria-pressed="true">FR</button><button data-lang="en" aria-pressed="false">EN</button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="board">
+    <div class="main" id="heroMain"></div>
+    <div class="side">
+      <div class="top">
+        <div class="sw" style="background-image:url(images/materiaux/lin.jpg)" title="Lin"></div>
+        <div class="sw" style="background-image:url(images/materiaux/chene.jpg)" title="Chêne"></div>
+        <div class="small" id="heroSmall"></div>
+      </div>
+      <div class="text">
+        <h1 data-i18n="hero_title"></h1>
+        <p data-i18n="hero_sub"></p>
+      </div>
+      <div class="bottom" id="dots"></div>
+    </div>
+  </div>
+
+  <section id="domaines" aria-labelledby="domaines-t">
+    <h2 class="section-title" id="domaines-t" data-i18n="dom_title"></h2>
+    <div class="domains" id="domains"></div>
+  </section>
+
+  <section id="projets" aria-labelledby="projets-t">
+    <h2 class="section-title" id="projets-t" data-i18n="work_title"></h2>
+    <div class="filters" id="filters" role="group"></div>
+    <div class="grid" id="grid"></div>
+    <p class="empty" id="empty" hidden data-i18n="empty"></p>
+  </section>
+
+  <section id="approche" class="approche" aria-labelledby="approche-t">
+    <h2 class="section-title" id="approche-t" data-i18n="app_title"></h2>
+    <div class="steps" id="steps"></div>
+  </section>
+
+  <section id="apropos" aria-labelledby="apropos-t">
+    <h2 class="section-title" id="apropos-t" data-i18n="about_title"></h2>
+    <div class="about">
+      <div class="portrait" id="portrait"></div>
+      <div><div class="text" id="aboutText"></div><dl id="aboutFacts"></dl></div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact" aria-labelledby="contact-t">
+    <div class="box">
+      <p class="big" data-i18n="contact_big"></p>
+      <div>
+        <ul>
+          <li><a href="mailto:megdichesalma41@gmail.com">megdichesalma41@gmail.com</a></li>
+          <li><a href="tel:+33640885093">+33 6 40 88 50 93</a></li>
+          <li data-i18n="contact_place"></li>
+        </ul>
+        <a class="cv" href="cv/CV_Salma_Megdiche.pdf" data-i18n="contact_cv"></a>
+      </div>
+    </div>
+    <footer><span>© 2026 Salma Megdiche — Architecte d'intérieur</span><span data-i18n="foot_legal"></span></footer>
+  </section>
+</main>
+
+<div class="backdrop" id="backdrop"></div>
+<aside class="panel" id="panel" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="panelTitle">
+  <div class="panel-in">
+    <button class="close" id="closePanel" data-i18n="close"></button>
+    <h2 id="panelTitle"></h2>
+    <p class="meta" id="panelMeta"></p>
+    <div class="gal" id="panelGal"></div>
+    <p class="desc" id="panelDesc"></p>
+    <ul class="facts" id="panelFacts"></ul>
+  </div>
+</aside>
+
+<script>
+/* ============================================================
+   CONTENU — TOUT CE QUI SE MODIFIE EST ICI (voir README.md)
+   ============================================================ */
+
+const SHOW_LANGUAGE_TOGGLE = false;   // passer à true le jour où l'anglais est prêt
+const ILLUSTRATION_MODE = true;       // affiche « Illustration provisoire » sur chaque photo — passer à false avec les vraies photos
+
+const HERO_IMAGE       = "images/projets/hero-main.jpg";          // ex. "images/projets/salon-01.jpg"
+const HERO_SMALL_IMAGE = "images/projets/hero-detail.jpg";          // petite image de la planche, ex. un détail de matière
+const PORTRAIT_IMAGE   = "";          // ex. "images/portrait.jpg"
+
+/* Les trois pastilles de la planche : nom du fichier de texture + étiquette */
+const SWATCHES = [
+  { img:"images/materiaux/celadon.jpg", label:"Émail céladon" },
+  { img:"images/materiaux/pierre.jpg",  label:"Pierre calcaire" },
+  { img:"images/materiaux/laiton.jpg",  label:"Laiton brossé" }
+];
+
+/* Catégories : couleur + libellés. Ne pas changer les clés (interieur, staging…). */
+const CATEGORIES = {
+  interieur: { color:"#6E8F80", tint:"#D6DED8", fr:"Architecture d'intérieur", en:"Interior design" },
+  staging:   { color:"#D5B26F", tint:"#EADFC8", fr:"Home staging",             en:"Home staging" },
+  showroom:  { color:"#C6968A", tint:"#E6D6D0", fr:"Showrooms & vitrines",     en:"Showrooms & displays" },
+  evenement: { color:"#8C81A0", tint:"#DCD8E2", fr:"Événementiel",             en:"Events" }
+};
+
+/* Projets. Pour en ajouter un : copier un bloc { ... }, changer les valeurs.
+   size : "wide" (large, deux cases) ou rien (carré). Pour une grille sans trou : nombre de projets = 3 larges pour 6 carrés, ou uniquement des carrés. images : chemins de fichiers.
+   sample:true affiche « Exemple » — à retirer sur un vrai projet. */
+const PROJECTS = [
+  { id:"doremail-30", cat:"showroom", size:"wide", year:"2016", place:"Tunis",
+    title:{fr:"Vitrines des 30 ans de Dorémail", en:"Dorémail 30th anniversary displays"},
+    mission:{fr:"Conception et réalisation", en:"Design and build"}, surface:"",
+    desc:{fr:"Vitrines scénographiées pour l'événement anniversaire d'un fabricant de carreaux céramique, devant plus de quatre cents architectes, designers et prescripteurs. La matière est traitée en volume plutôt qu'en échantillon : les formats se lisent à distance, les calepinages se comprennent en marchant.",
+          en:"Scenographic displays for the anniversary event of a ceramic tile manufacturer, presented to over four hundred architects, designers and specifiers."},
+    images:["images/projets/doremail-30.jpg"] },
+  { id:"appartement-01", cat:"interieur", year:"2018", place:"Tunis",
+    title:{fr:"Appartement familial", en:"Family apartment"},
+    mission:{fr:"Rénovation complète et suivi de chantier", en:"Full renovation and site supervision"}, surface:"120 m²",
+    desc:{fr:"Réorganisation des pièces de vie autour d'une cuisine ouverte. Relevé, plans, choix des matériaux et du mobilier, coordination des corps d'état et réception. Texte à remplacer par le projet réel.", en:"Replace with the actual project."},
+    images:["images/projets/appartement-01.jpg"], sample:true },
+  { id:"doremail-reseau", cat:"showroom", year:"2015 – 2016", place:"Tunis",
+    title:{fr:"Réseau de showrooms Dorémail", en:"Dorémail showroom network"},
+    mission:{fr:"Concept et déploiement sur 5 showrooms", en:"Concept and roll-out across 5 showrooms"}, surface:"",
+    desc:{fr:"Un concept d'ambiances décliné sur les cinq showrooms du réseau et chez les revendeurs : agencement, harmonies de matériaux, cohérence de la ligne d'un site à l'autre.", en:"One concept rolled out across five showrooms and retailers."},
+    images:["images/projets/doremail-reseau.jpg"] },
+  { id:"event-01", cat:"evenement", year:"2018", place:"Tunis",
+    title:{fr:"Séminaire d'entreprise, 300 personnes", en:"Corporate seminar, 300 guests"},
+    mission:{fr:"Scénographie et coordination", en:"Scenography and coordination"}, surface:"",
+    desc:{fr:"Exemple à remplacer.", en:"Example — replace."}, images:[], sample:true },
+  { id:"cuisine-01", cat:"interieur", year:"2017", place:"Tunis",
+    title:{fr:"Cuisine ouverte sur séjour", en:"Kitchen opened onto the living room"},
+    mission:{fr:"Conception et réalisation", en:"Design and build"}, surface:"28 m²",
+    desc:{fr:"Exemple à remplacer.", en:"Example — replace."}, images:["images/projets/cuisine-01.jpg"], sample:true },
+  { id:"staging-01", cat:"staging", size:"wide", year:"2026", place:"Suresnes",
+    title:{fr:"Studio avant mise en location", en:"Studio before letting"},
+    mission:{fr:"Home staging", en:"Home staging"}, surface:"22 m²",
+    desc:{fr:"Exemple à remplacer.", en:"Example — replace."}, images:[], sample:true },
+  { id:"sdb-01", cat:"interieur", year:"2019", place:"Tunis",
+    title:{fr:"Salle de bains en pierre", en:"Stone bathroom"},
+    mission:{fr:"Conception, calepinage, suivi de pose", en:"Design, tile layout, installation supervision"}, surface:"9 m²",
+    desc:{fr:"Exemple à remplacer.", en:"Example — replace."}, images:[], sample:true },
+  { id:"event-02", cat:"evenement", year:"2017", place:"Tunis",
+    title:{fr:"Réception, 500 personnes", en:"Reception, 500 guests"},
+    mission:{fr:"Scénographie, implantation, coordination", en:"Scenography, layout, coordination"}, surface:"",
+    desc:{fr:"Exemple à remplacer.", en:"Example — replace."}, images:[], sample:true },
+  { id:"showroom-paris", cat:"showroom", size:"wide", year:"2019 – 2026", place:"Paris",
+    title:{fr:"Scénographies d'un showroom de matériaux", en:"Material showroom scenographies"},
+    mission:{fr:"Conception et renouvellement", en:"Design and renewal"}, surface:"",
+    desc:{fr:"Renouvellement régulier des ambiances d'un showroom parisien de carrelage et de matériaux : mise en scène des formats, parcours client, valorisation des gammes. À valider avec l'employeur avant publication.", en:"To be cleared with the employer before publishing."},
+    images:["images/projets/showroom-paris.jpg"], sample:true }
+];
+
+const CONTENT = {
+  fr:{
+    brand_sub:"Architecte d'intérieur",
+    nav_work:"Projets", nav_approach:"Approche", nav_about:"À propos", nav_contact:"Contact",
+    hero_title:"Architecte d'intérieur, à Paris.",
+    hero_sub:"Résidentiel, showrooms et vitrines, home staging, scénographie d'événements. De la conception jusqu'au dernier joint.",
+    dom_title:"Domaines",
+    domains:[
+      {cat:"interieur", t:"Architecture d'intérieur", p:"Rénovation et aménagement de logements : plans, matériaux, finitions, suivi du chantier jusqu'à la réception."},
+      {cat:"staging",   t:"Home staging", p:"Préparer un bien avant sa mise en vente ou en location : réagencer, éclairer, valoriser — sans travaux lourds."},
+      {cat:"showroom",  t:"Showrooms & vitrines", p:"Des espaces de vente et des vitrines qui mettent la matière en scène, pour des fabricants et des distributeurs."},
+      {cat:"evenement", t:"Événementiel", p:"Scénographie d'événements de 50 à 500 personnes : implantation, décor, coordination le jour même."}
+    ],
+    work_title:"Projets", all:"Tous", empty:"Aucun projet dans cette catégorie pour le moment.", sample:"Exemple",
+    app_title:"Approche",
+    steps:[
+      {t:"Écouter et relever", p:"Une visite, un relevé, et le temps de comprendre l'usage réel du lieu et le budget disponible."},
+      {t:"Concevoir", p:"Plans, planches de matériaux, chiffrage. Une proposition claire, puis les ajustements qu'il faut."},
+      {t:"Réaliser", p:"Sélection des artisans, suivi du chantier, contrôle des finitions et réception."}
+    ],
+    about_title:"À propos",
+    about:[
+      "Formée au design à Tunis puis à Montréal, j'ai fondé et dirigé pendant trois ans une structure de design d'intérieur et de scénographie avant de m'installer à Paris.",
+      "Depuis 2019, je conseille architectes, maîtres d'œuvre et particuliers sur les matériaux et leur mise en œuvre au sein d'un showroom parisien : formats, calepinage, pièces humides, seuils, plinthes.",
+      "Dix opérations résidentielles, dix événements, cinq showrooms. Je conçois, et je suis l'exécution jusqu'au dernier joint."
+    ],
+    facts:[["Formation","Université de Montréal — DESS Art, création et technologie · Collège Herzing — Design d'intérieur · ESSTED Tunis — Design"],["Outils","AutoCAD, SketchUp, Photoshop"],["Langues","Français, arabe, anglais"]],
+    contact_big:"Un projet, une question, ou un poste à pourvoir : écrivez-moi.",
+    contact_place:"Basée à Suresnes — Paris et Hauts-de-Seine",
+    contact_cv:"Télécharger le CV", foot_legal:"Mentions légales", close:"Fermer",
+    lbl_mission:"Mission", lbl_place:"Lieu", lbl_year:"Année", lbl_surface:"Surface",
+    img_ph:"Photo à ajouter", hero_ph:"Image d'ouverture", small_ph:"Détail", portrait_ph:"Portrait"
+  },
+  en:{
+    brand_sub:"Interior designer", nav_work:"Work", nav_approach:"Approach", nav_about:"About", nav_contact:"Contact",
+    hero_title:"Interior designer, in Paris.",
+    hero_sub:"Residential, showrooms and displays, home staging, event scenography. From concept to the last grout line.",
+    dom_title:"Fields",
+    domains:[
+      {cat:"interieur", t:"Interior design", p:"Renovating and fitting out homes: plans, materials, finishes, site supervision through to handover."},
+      {cat:"staging",   t:"Home staging", p:"Preparing a property before sale or letting: rearrange, light, enhance — without heavy works."},
+      {cat:"showroom",  t:"Showrooms & displays", p:"Retail spaces and window displays that put material on stage."},
+      {cat:"evenement", t:"Events", p:"Scenography for events of 50 to 500 guests: layout, set design, coordination on the day."}
+    ],
+    work_title:"Work", all:"All", empty:"No project in this category yet.", sample:"Sample",
+    app_title:"Approach",
+    steps:[{t:"Listen and survey", p:"A visit, a survey, and the time to understand how the place is really used."},{t:"Design", p:"Plans, material boards, costing. One clear proposal, then adjustments."},{t:"Build", p:"Selecting the trades, supervising the site, checking finishes and handing over."}],
+    about_title:"About",
+    about:["Trained in design in Tunis and then Montréal, I founded and ran an interior design and scenography practice for three years before moving to Paris.","Since 2019 I have advised architects, contractors and private clients on materials and their installation in a Paris showroom.","Ten residential projects, ten events, five showrooms. I design, and I follow the work through to the last grout line."],
+    facts:[["Education","Université de Montréal · Herzing College · ESSTED Tunis"],["Tools","AutoCAD, SketchUp, Photoshop"],["Languages","French, Arabic, English"]],
+    contact_big:"A project, a question, or a position to fill: write to me.",
+    contact_place:"Based in Suresnes — Paris and Hauts-de-Seine",
+    contact_cv:"Download CV", foot_legal:"Legal notice", close:"Close",
+    lbl_mission:"Role", lbl_place:"Place", lbl_year:"Year", lbl_surface:"Area",
+    img_ph:"Photo to add", hero_ph:"Opening image", small_ph:"Detail", portrait_ph:"Portrait"
+  }
+};
+
+/* ============================================================
+   MÉCANIQUE — ne pas modifier en dessous
+   ============================================================ */
+let lang="fr", filter="all";
+const $=s=>document.querySelector(s); const t=k=>CONTENT[lang][k];
+const img=(src,alt="")=>src?`<img src="${src}" alt="${alt}">${ILLUSTRATION_MODE?`<span class="illu">Illustration provisoire</span>`:""}`:"";
+const ph=k=>`<div class="ph">${t(k)}</div>`;
+
+function render(){
+  document.documentElement.lang=lang;
+  $("#langToggle").hidden=!SHOW_LANGUAGE_TOGGLE;
+  document.querySelectorAll("[data-i18n]").forEach(el=>el.textContent=t(el.dataset.i18n));
+  document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.lang===lang));
+  $("#heroMain").innerHTML = HERO_IMAGE ? img(HERO_IMAGE) : ph("hero_ph");
+  $("#heroSmall").innerHTML = HERO_SMALL_IMAGE ? img(HERO_SMALL_IMAGE) : ph("small_ph");
+  $("#portrait").innerHTML = PORTRAIT_IMAGE ? img(PORTRAIT_IMAGE,"Salma Megdiche") : ph("portrait_ph");
+  $("#dots").innerHTML = SWATCHES.map(s=>`<div><div class="dot" style="background-image:url(${s.img})"></div><div class="lbl">${s.label}</div></div>`).join("");
+  $("#domains").innerHTML = t("domains").map(d=>`<div style="--c:${CATEGORIES[d.cat].color}"><h3>${d.t}</h3><p>${d.p}</p></div>`).join("");
+  $("#steps").innerHTML = t("steps").map((s,i)=>`<div><div class="n">${i+1}</div><h3>${s.t}</h3><p>${s.p}</p></div>`).join("");
+  $("#aboutText").innerHTML = t("about").map(p=>`<p>${p}</p>`).join("");
+  $("#aboutFacts").innerHTML = t("facts").map(([k,v])=>`<dt>${k}</dt><dd>${v}</dd>`).join("");
+  const keys=["all",...Object.keys(CATEGORIES)];
+  $("#filters").innerHTML = keys.map(k=>`<button data-f="${k}" aria-pressed="${filter===k}">${k==="all"?"":`<span class="chip" style="--c:${CATEGORIES[k].color}"></span>`}${k==="all"?t("all"):CATEGORIES[k][lang]}</button>`).join("");
+  const shown=PROJECTS.filter(p=>filter==="all"||p.cat===filter);
+  $("#grid").innerHTML = shown.map(p=>{const c=CATEGORIES[p.cat];return `
+    <button class="tile ${p.size||""}" data-id="${p.id}" aria-haspopup="dialog" style="--t:${c.tint}">
+      <div class="img">${p.images[0]?img(p.images[0]):ph("img_ph")}</div>
+      <div class="cap"><span class="chip" style="--c:${c.color}"></span>
+        <div><b>${p.title[lang]}${p.sample?`<em>${t("sample")}</em>`:""}</b><span>${c[lang]} — ${p.place}, ${p.year}</span></div></div>
+    </button>`}).join("");
+  $("#empty").hidden = shown.length>0;
+}
+function openPanel(id){
+  const p=PROJECTS.find(x=>x.id===id); if(!p) return; const c=CATEGORIES[p.cat];
+  $("#panelTitle").textContent=p.title[lang];
+  $("#panelMeta").innerHTML=`<span class="chip" style="--c:${c.color}"></span>${c[lang]} — ${p.place}, ${p.year}`;
+  const imgs=p.images.length?p.images:[null,null,null];
+  $("#panelGal").innerHTML=imgs.map(s=>`<div style="--t:${c.tint}">${s?img(s):ph("img_ph")}</div>`).join("");
+  $("#panelDesc").textContent=p.desc[lang];
+  const facts=[[t("lbl_mission"),p.mission[lang]],[t("lbl_place"),p.place],[t("lbl_year"),p.year],[t("lbl_surface"),p.surface]].filter(f=>f[1]);
+  $("#panelFacts").innerHTML=facts.map(([k,v])=>`<li><span>${k}</span>${v}</li>`).join("");
+  $("#panel").classList.add("on"); $("#panel").setAttribute("aria-hidden","false");
+  $("#backdrop").classList.add("on"); document.body.style.overflow="hidden"; $("#closePanel").focus();
+}
+function closePanel(){ $("#panel").classList.remove("on"); $("#panel").setAttribute("aria-hidden","true"); $("#backdrop").classList.remove("on"); document.body.style.overflow=""; }
+document.addEventListener("click",e=>{
+  const lb=e.target.closest("[data-lang]"); if(lb){lang=lb.dataset.lang;render();return;}
+  const fb=e.target.closest("[data-f]");   if(fb){filter=fb.dataset.f;render();return;}
+  const tile=e.target.closest(".tile");    if(tile){openPanel(tile.dataset.id);return;}
+  if(e.target.closest("#closePanel")||e.target.id==="backdrop") closePanel();
+});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closePanel();});
+render();
+</script>
+</body>
+</html>
